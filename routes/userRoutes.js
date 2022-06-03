@@ -81,8 +81,8 @@ router.post("/resend-otp", async (req, res) => {
 
                     client.messages.create({
                         from: fromPhone,
-                        to: `}`,
-                        body: `Hello, your OTP for account confirmation is ${user.otp}. It will expire in 60 minutes.`
+                        to: `${user.phone}`,
+                        body: `Hello, your OTP to login is ${user.otp}. Expires in 5 minutes.`
                     }).then((message) => {
                         console.log(message);
                         res.status(200).json("OTP sent.");
